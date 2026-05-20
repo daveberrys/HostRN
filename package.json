@@ -1,0 +1,14 @@
+{
+  "name": "hostrn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "pnpm -r start",
+    "start:frontend": "pnpm --filter frontend start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}

@@ -1,0 +1,12 @@
+:root {
+    --background: #000;
+    --text: #fff
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    color: var(--text);
+    font-family: sans-serif;
+}
