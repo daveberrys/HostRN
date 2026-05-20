@@ -25,7 +25,7 @@ struct StartServiceRequest {
 
 // HANDLERS
 async fn start_service(Json(request): Json<StartServiceRequest>) -> Json<Service> {
-    println!("TODO: actually make this work")
+    println!("TODO: actually make this work");
     Json(Service {
         uuid: request.uuid,
         name: "".to_string(),
