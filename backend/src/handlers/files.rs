@@ -10,6 +10,7 @@ pub struct Service {
     pub name: String,
     pub path: String,
     pub command: String,
+    pub running: Option<String>,
 }
 
 pub async fn get_services() -> Json<Vec<Service>> {

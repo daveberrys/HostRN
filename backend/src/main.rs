@@ -9,18 +9,23 @@ use tokio;
 use std::path::Path;
 use std::fs;
 
+use std::collections::HashMap;
+use std::sync::{Arc, Mutex};
+
 // handlers
 use handlers::files::{get_services, save_service, delete_service};
 use handlers::command::{start_service, stop_service};
 
 // === APP ROUTER SETUP ===
 fn app() -> Router {
+    let state = Arc::new(Mutex::new(HashMap::new()));
     Router::new()
         .route("/start-service", post(start_service))
         .route("/get-services", get(get_services))
         .route("/save-service", post(save_service))
         .route("/stop-service", post(stop_service))
         .route("/delete-service", post(delete_service))
+        .with_state(state.clone())
 }
 
 #[tokio::main]
