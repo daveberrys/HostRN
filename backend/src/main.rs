@@ -38,6 +38,10 @@ async fn main() {
         fs::create_dir_all("data").unwrap();
         fs::write("data/services.json", "[]").unwrap();
     }
+
+    let mut services = fs::read_to_string("data/services.json").unwrap();
+    services = services.replace("\"running\": true", "\"running\": false");
+    fs::write("data/services.json", services).unwrap();
     
     axum::serve(listener, app()).await.unwrap();
 }
