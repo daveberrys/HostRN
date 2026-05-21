@@ -1,6 +1,12 @@
+const configPromise = fetch('/config').then(res => res.json());
+async function getUrl() {
+    const { API_URL } = await configPromise;
+    return API_URL;
+}
+
 async function fetch_services() {
     try {
-        const response = await fetch('http://localhost:3001/get-services');
+        const response = await fetch(`http://${await getUrl()}:3001/get-services`);
         const data = await response.json();
         return data
     } catch (e) {
@@ -11,7 +17,7 @@ async function fetch_services() {
 
 async function save_service(name, path, command) {
     try {
-        const response = await fetch("http://localhost:3001/save-service", {
+        const response = await fetch(`http://${await getUrl()}:3001/save-service`, {
             method: "POST",
             body: JSON.stringify({
                 name: name,
@@ -33,7 +39,7 @@ async function save_service(name, path, command) {
 
 async function delete_service(uuid, name, path, command) {
     try {
-        const response = await fetch("http://localhost:3001/delete-service", {
+        const response = await fetch(`http://${await getUrl()}:3001/delete-service`, {
             method: "POST",
             body: JSON.stringify({
                 uuid: uuid,
@@ -56,7 +62,7 @@ async function delete_service(uuid, name, path, command) {
 
 async function start_service(uuid, name, path, command) {
     try {
-        const response = await fetch("http://localhost:3001/start-service", {
+        const response = await fetch(`http://${await getUrl()}:3001/start-service`, {
             method: "POST",
             body: JSON.stringify({
                 uuid: uuid,
@@ -78,7 +84,7 @@ async function start_service(uuid, name, path, command) {
 
 async function stop_service(uuid, name, path, command) {
     try {
-        const response = await fetch("http://localhost:3001/stop-service", {
+        const response = await fetch(`http://${await getUrl()}:3001/stop-service`, {
             method: "POST",
             body: JSON.stringify({
                 uuid: uuid,

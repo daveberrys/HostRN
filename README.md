@@ -16,6 +16,7 @@ It's not. Probably. We give you less features because, well, fuck off with a bun
 - Clone the repository, and run `pnpm install` to install all the dependencies.
 - Once done, run `pnpm run start` to run both servers at once! *The power of workspaces! And also, Rust and SolidJS.*
 - Then, just visit `http://localhost:3000` to see the web interface. You can also view it from another device in the same network or zero-trust VPN!
+    - PLEASE AND PLEASE create a `.env` file in [@frontend](frontend/) with `API_URL` set to your server's IP address.
 
 ## LICENSE
 HostRN is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
