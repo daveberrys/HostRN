@@ -2,9 +2,10 @@
   "name": "frontend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "start": "node serve.js"
+    "start": "node serve.js",
+    "add:npm": "pnpm add",
+    "remove:npm": "pnpm remove"
   },
   "keywords": [],
   "author": "",

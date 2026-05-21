@@ -2,9 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "start": "cargo run --release dev"
+    "start": "cargo run --release dev",
+    "add:cargo": "cargo add",
+    "remove:cargo": "cargo remove"
   },
   "keywords": [],
   "author": "",

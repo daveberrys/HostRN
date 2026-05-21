@@ -2,10 +2,16 @@
   "name": "hostrn",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "start": "pnpm -r start",
-    "start:frontend": "pnpm --filter frontend start"
+    "start:frontend": "pnpm --filter frontend start",
+    "start:backend": "pnpm --filter backend start",
+    
+    "add:backend": "pnpm --filter backend add:cargo",
+    "remove:backend": "pnpm --filter backend remove:cargo",
+
+    "add:frontend": "pnpm --filter frontend add:npm",
+    "remove:frontend": "pnpm --filter frontend remove:npm"
   },
   "keywords": [],
   "author": "",
