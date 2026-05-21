@@ -28,9 +28,9 @@ pub async fn start_service(
 
     cmd.current_dir(&service.path);
 
-    #[cfg(unix)] {
+    #[cfg(unix)] unsafe {
         cmd.pre_exec(|| {
-            unsafe { libc::setpgid(0, 0) };
+            { libc::setpgid(0, 0) };
             Ok(())
         });
     }

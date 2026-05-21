@@ -1,8 +1,9 @@
 import html from 'solid-js/html';
-import { save_service, fetch_services } from '../API.js';
+import { save_service } from '../API.js';
+import { signal } from 'solid-js';
 
 function CreateService() {
-    const services = []
+    const services = signal({ name: '', path: '', command: '' });
     return html`
         <div class="CreateService">
             <section class="inputs">
