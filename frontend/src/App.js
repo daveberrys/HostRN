@@ -1,24 +1,13 @@
-import { createSignal } from "solid-js";
 import html from "solid-js/html";
+import Service from "./components/Service.js"
+import CreateService from "./components/CreateService.js"
 
 function App() {
-    const [count, setCount] = createSignal(0);
-
     return html`
-        <span>MAKE BACKEND FIRST AND THEN THE FRONTEND</span> <br/>
-        <span>MAKE BACKEND FIRST AND THEN THE FRONTEND</span> <br/>
-        <span>MAKE BACKEND FIRST AND THEN THE FRONTEND</span> <br/>
-        <span>MAKE BACKEND FIRST AND THEN THE FRONTEND</span> <br/>
-        <span>MAKE BACKEND FIRST AND THEN THE FRONTEND</span> <br/>
-        <span>MAKE BACKEND FIRST AND THEN THE FRONTEND</span> <br/>
-        <span>MAKE BACKEND FIRST AND THEN THE FRONTEND</span> <br/>
-        <span>MAKE BACKEND FIRST AND THEN THE FRONTEND</span> <br/>
-        <span>MAKE BACKEND FIRST AND THEN THE FRONTEND</span> <br/>
-        <span>MAKE BACKEND FIRST AND THEN THE FRONTEND</span> <br/>
-        <span>MAKE BACKEND FIRST AND THEN THE FRONTEND</span> <br/>
-        <span>MAKE BACKEND FIRST AND THEN THE FRONTEND</span> <br/>
-        <span>MAKE BACKEND FIRST AND THEN THE FRONTEND</span> <br/>
-        <span>MAKE BACKEND FIRST AND THEN THE FRONTEND</span>
+        <div class="index">
+            <${CreateService} />
+            <${Service} />
+        </div>
     `;
 }
 

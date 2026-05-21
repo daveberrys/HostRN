@@ -20,7 +20,9 @@ use handlers::command::{start_service, stop_service};
 fn app() -> Router {
     let state = Arc::new(Mutex::new(HashMap::new()));
     let cors = cors::CorsLayer::new()
-        .allow_origin(cors::Any);
+        .allow_origin(cors::Any)
+        .allow_methods(cors::Any)
+        .allow_headers(cors::Any);
     
     Router::new()
         .route("/start-service", post(start_service))
