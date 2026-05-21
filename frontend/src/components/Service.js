@@ -1,6 +1,6 @@
 import html from "solid-js/html";
 import { For, createResource } from "solid-js";
-import { fetch_services, start_service, delete_service } from "../API.js";
+import { fetch_services, start_service, delete_service, stop_service } from "../API.js";
 
 function Service() {
     const [services] = createResource(fetch_services)
