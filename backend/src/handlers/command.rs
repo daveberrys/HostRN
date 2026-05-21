@@ -45,7 +45,7 @@ pub async fn start_service(
         name: service.name.clone(),
         path: service.path.clone(),
         command: service.command.clone(),
-        running: Some("true".to_string()),
+        running: Some(true),
     })
 }
 
@@ -77,7 +77,7 @@ pub async fn stop_service(
         name: service.name.clone(),
         path: service.path.clone(),
         command: service.command.clone(),
-        running: Some("false".to_string()),
+        running: Some(false),
     })
 }
 

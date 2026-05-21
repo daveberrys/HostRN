@@ -10,7 +10,7 @@ pub struct Service {
     pub name: String,
     pub path: String,
     pub command: String,
-    pub running: Option<String>,
+    pub running: Option<bool>,
 }
 
 pub async fn get_services() -> Json<Vec<Service>> {
@@ -27,6 +27,7 @@ pub async fn save_service(Json(service): Json<Service>) -> Json<Service> {
         .collect();
     let mut service = service;
     service.uuid = Some(uuid);
+    service.running = Some(false);
     let services = fs::read_to_string("data/services.json").unwrap();
     let mut services: Vec<Service> = serde_json::from_str(&services).unwrap();
     services.push(service.clone());
