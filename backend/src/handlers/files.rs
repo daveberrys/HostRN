@@ -34,12 +34,11 @@ pub async fn save_service(Json(service): Json<Service>) -> Json<Service> {
     Json(service)
 }
 
-pub async fn delete_service(Json(request): Json<Service>) -> Json<Service> {
-    println!("TODO: make delete_service work");
-    Json(Service {
-        uuid: None,
-        name: "".to_string(),
-        path: "".to_string(),
-        command: "".to_string(),
-    })
+pub async fn delete_service(Json(service): Json<Service>) -> Json<Service> {
+    let services = fs::read_to_string("data/services.json").unwrap();
+    let mut services: Vec<Service> = serde_json::from_str(&services).unwrap();
+    services.retain(|s| s.uuid.as_deref() != service.uuid.as_deref());
+    fs::write("data/services.json", serde_json::to_string(&services).unwrap()).unwrap();
+    Json(service)
 }
+
