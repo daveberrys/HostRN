@@ -8,9 +8,9 @@ use std::net::SocketAddr;
 use tokio;
 use std::path::Path;
 use std::fs;
-
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
+use tower_http::cors;
 
 // handlers
 use handlers::files::{get_services, save_service, delete_service};
@@ -19,6 +19,9 @@ use handlers::command::{start_service, stop_service};
 // === APP ROUTER SETUP ===
 fn app() -> Router {
     let state = Arc::new(Mutex::new(HashMap::new()));
+    let cors = cors::CorsLayer::new()
+        .allow_origin(cors::Any);
+    
     Router::new()
         .route("/start-service", post(start_service))
         .route("/get-services", get(get_services))
@@ -26,6 +29,7 @@ fn app() -> Router {
         .route("/stop-service", post(stop_service))
         .route("/delete-service", post(delete_service))
         .with_state(state.clone())
+        .layer(cors)
 }
 
 #[tokio::main]
