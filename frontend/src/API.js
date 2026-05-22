@@ -17,6 +17,8 @@ async function fetch_services() {
 
 async function save_service(name, path, command) {
     try {
+        if (name === '' || path === '' || command === '') return;
+        
         const response = await fetch(`http://${await getUrl()}:3001/save-service`, {
             method: "POST",
             body: JSON.stringify({
