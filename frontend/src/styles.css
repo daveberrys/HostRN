@@ -103,7 +103,7 @@ span {
     }
 }
 
-button {
+.button {
     background-color: var(--card-background);
     color: var(--text);
     border: 2px solid var(--card-border);
@@ -112,6 +112,8 @@ button {
     box-shadow: 0 var(--stickout) 0 var(--card-border);
     transition: all 0.2s ease;
     cursor: pointer;
+    text-decoration: none;
+    font-size: 0.75rem;
 
     &.true {
         background-color: var(--start);

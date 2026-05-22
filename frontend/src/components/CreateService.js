@@ -18,11 +18,18 @@ function CreateService() {
 
             <section class="buttons">
                 <button
-                    class="true"
+                    class="button true"
                     onclick=${() => save_service(form.name, form.path, form.command)}
                 >
                     Save Service
                 </button>
+
+                <a 
+                    href="https://github.com/daveberrys/HostRN"
+                    class="button"
+                >
+                    Github Repository
+                </a>
             </section>
         </div>
     `;

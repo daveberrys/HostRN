@@ -17,21 +17,21 @@ function Service() {
 
                         <section class="buttons">
                             <button
-                                class="true"
+                                class="button true"
                                 onclick=${() => start_service(service.uuid, service.name, service.path, service.command)}
                             >
                                 Start Service
                             </button>
 
                             <button
-                                class="false"
+                                class="button false"
                                 onclick=${() => stop_service(service.uuid, service.name, service.path, service.command)}
                             >
                                 Stop Service
                             </button>
 
                             <button
-                                class="false"
+                                class="button false"
                                 onclick=${() => delete_service(service.uuid, service.name, service.path, service.command)}
                             >
                                 Delete Service
