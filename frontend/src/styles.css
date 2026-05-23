@@ -1,6 +1,7 @@
 :root {
     --background: #000;
     --text: #fff;
+    --text-link: #0ff;
     --text-secondary: #000;
 
     --card-background: #111;
@@ -24,17 +25,29 @@
 }
 
 body, html {
+    margin: 0;
+    padding: 0;
     background-color: var(--background);
     color: var(--text);
     font-family: sans-serif;
+    height: 100vh;
 }
 
 .index {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
     gap: var(--gap-3);
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: var(--gap-3);
+    }
 }
+
+/* ===== EACH COMPONENT STYLES ===== */
 
 .Service {
     display: flex;
@@ -42,6 +55,7 @@ body, html {
     align-items: center;
     justify-content: center;
     gap: var(--gap-2);
+    @media (max-width: 768px) { padding: 0 var(--gap-3); }
     
     .item {
         background-color: var(--card-background);
@@ -71,10 +85,8 @@ body, html {
 .CreateService {
     background-color: var(--card-background);
     padding: var(--padding);
-    border-radius: var(--radius);
-    border: 2px solid var(--card-border);
     display: flex;
-    flex-direction: column;
+    /*flex-direction: column;*/
     gap: var(--gap-2);
     box-shadow: 0 5px 0 var(--card-border);
     width: auto;
@@ -83,6 +95,7 @@ body, html {
         display: flex;
         flex-direction: column;
         gap: var(--gap-2);
+        flex: 1;
     }
 
     .buttons {
@@ -91,6 +104,17 @@ body, html {
     }
 }
 
+.Footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--card-background);
+    box-shadow: 0 -5px 0 var(--card-border);
+    padding: var(--padding);
+}
+
+/* ===== GLOBAL STYLING ===== */
+
 span {
     &.big {
         font-size: 1.5rem;
@@ -98,7 +122,7 @@ span {
     }
     
     &.small {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         opacity: 0.5;
     }
 }
@@ -114,6 +138,8 @@ span {
     cursor: pointer;
     text-decoration: none;
     font-size: 0.75rem;
+    display: flex;
+    align-items: center;
 
     &.true {
         background-color: var(--start);
@@ -150,4 +176,29 @@ input {
         outline: none;
         box-shadow: 0 var(--hidein) 0 var(--card-border);
     }
+}
+
+div {
+    &.indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+        background-color: var(--card-border);
+
+        &.true { background-color: var(--start); }
+        &.false { background-color: var(--stop); }
+    }
+}
+
+.flex {
+    display: flex;
+    gap: 2px;
+    &.column { flex-direction: column; }
+}
+
+a {
+    color: var(--text-link);
+    text-decoration: none;
+    scale: 1;
 }

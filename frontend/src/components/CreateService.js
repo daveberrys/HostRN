@@ -24,12 +24,13 @@ function CreateService() {
                     Save Service
                 </button>
 
-                <a 
+                <!--<a 
                     href="https://github.com/daveberrys/HostRN"
                     class="button"
+                    target="_blank"
                 >
                     Github Repository
-                </a>
+                </a>-->
             </section>
         </div>
     `;

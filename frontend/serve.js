@@ -11,9 +11,9 @@ const port = 3000
 
 app.use(express.static(__dirname))
 app.get('/config', (req, res) => {
-  res.json({
-    API_URL: process.env.PUBLIC_SERVER_IP
-  });
+    res.json({
+        API_URL: process.env.PUBLIC_SERVER_IP
+    });
 });
 
 app.listen(port, () => {

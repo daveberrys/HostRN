@@ -10,9 +10,12 @@ function Service() {
                 ${service => html`
                     <div class="item">
                         <section class="info">
-                            <span class="big">${service.name}</span>
+                            <section style="display: flex; align-items: center; ">
+                                <div class="indicator ${service.running ? true : false}"></div>
+                                <span class="big">${service.name}</span>
+                            </section>
                             <span>${service.path}</span>
-                            <span class="small">${service.uuid}</span>
+                            <!--<span class="small">{service.uuid}</span>-->
                         </section>
 
                         <section class="buttons">

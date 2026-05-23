@@ -10,14 +10,13 @@ async function fetch_services() {
         const data = await response.json();
         return data
     } catch (e) {
-        console.error(e);
-        return null;
+        return "Could not fetch services: " + e;
     }
 }
 
 async function save_service(name, path, command) {
     try {
-        if (name === '' || path === '' || command === '') return;
+        if (name === '' || path === '' || command === '') return "Please fill in all fields";
         
         const response = await fetch(`http://${await getUrl()}:3001/save-service`, {
             method: "POST",
@@ -30,18 +29,16 @@ async function save_service(name, path, command) {
                 "Content-Type": "application/json",
             },
         });
-        const data = await response.json();
         location.reload();
-        return data
+        return "Successfully saved " + name
     } catch (e) {
-        console.error(e);
-        return null;
+        return "Could not save service: " + e;
     }
 }
 
 async function delete_service(uuid, name, path, command) {
     try {
-        const response = await fetch(`http://${await getUrl()}:3001/delete-service`, {
+        await fetch(`http://${await getUrl()}:3001/delete-service`, {
             method: "POST",
             body: JSON.stringify({
                 uuid: uuid,
@@ -53,18 +50,16 @@ async function delete_service(uuid, name, path, command) {
                 "Content-Type": "application/json",
             },
         });
-        const data = await response.json();
         location.reload();
-        return data
+        return "Successfully deleted " + name
     } catch (e) {
-        console.error(e);
-        return null;
+        return "Could not delete service: " + e;
     }
 }
 
 async function start_service(uuid, name, path, command) {
     try {
-        const response = await fetch(`http://${await getUrl()}:3001/start-service`, {
+        await fetch(`http://${await getUrl()}:3001/start-service`, {
             method: "POST",
             body: JSON.stringify({
                 uuid: uuid,
@@ -76,17 +71,15 @@ async function start_service(uuid, name, path, command) {
                 "Content-Type": "application/json",
             },
         });
-        const data = await response.json();
-        return data
+        return "Started " + name
     } catch (e) {
-        console.error(e);
-        return null;
+        return "Could not start service: " + e;
     }
 }
 
 async function stop_service(uuid, name, path, command) {
     try {
-        const response = await fetch(`http://${await getUrl()}:3001/stop-service`, {
+        await fetch(`http://${await getUrl()}:3001/stop-service`, {
             method: "POST",
             body: JSON.stringify({
                 uuid: uuid,
@@ -98,11 +91,9 @@ async function stop_service(uuid, name, path, command) {
                 "Content-Type": "application/json",
             },
         });
-        const data = await response.json();
-        return data
+        return "Stopped " + name
     } catch (e) {
-        console.error(e);
-        return null;
+        return "Could not stop service: " + e;
     }
 }
 
