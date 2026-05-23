@@ -97,4 +97,13 @@ async function stop_service(uuid, name, path, command) {
     }
 }
 
-export { fetch_services, save_service, delete_service, start_service, stop_service };
+async function check_service(uuid) {
+    try {
+        const response = await fetch(`http://${await getUrl()}:3001/check-service?uuid=${uuid}`);
+        return await response.json();
+    } catch (e) {
+        return false;
+    }
+}
+
+export { fetch_services, save_service, delete_service, start_service, stop_service, check_service };

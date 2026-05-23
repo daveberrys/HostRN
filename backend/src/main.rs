@@ -14,7 +14,7 @@ use tower_http::cors;
 
 // handlers
 use handlers::files::{get_services, save_service, delete_service};
-use handlers::command::{start_service, stop_service};
+use handlers::command::{start_service, stop_service, check_service};
 
 // === APP ROUTER SETUP ===
 fn app() -> Router {
@@ -30,6 +30,7 @@ fn app() -> Router {
         .route("/save-service", post(save_service))
         .route("/stop-service", post(stop_service))
         .route("/delete-service", post(delete_service))
+        .route("/check-service", get(check_service))
         .with_state(state.clone())
         .layer(cors)
 }
