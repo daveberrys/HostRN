@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const app = express()
-const port = 3000
+const port = 4678
 
 app.use(express.static(__dirname))
 app.get('/config', (req, res) => {
@@ -17,5 +17,5 @@ app.get('/config', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`)
+  console.log(`Server running at: http://localhost:${port}`)
 })

@@ -1,4 +1,5 @@
 const configPromise = fetch('/config').then(res => res.json());
+const port = 7878;
 async function getUrl() {
     const { API_URL } = await configPromise;
     return API_URL;
@@ -6,7 +7,7 @@ async function getUrl() {
 
 async function fetch_services() {
     try {
-        const response = await fetch(`http://${await getUrl()}:3001/get-services`);
+        const response = await fetch(`http://${await getUrl()}:${port}/get-services`);
         const data = await response.json();
         return data
     } catch (e) {
@@ -18,7 +19,7 @@ async function save_service(name, path, command) {
     try {
         if (name === '' || path === '' || command === '') return "Please fill in all fields";
         
-        const response = await fetch(`http://${await getUrl()}:3001/save-service`, {
+        const response = await fetch(`http://${await getUrl()}:${port}/save-service`, {
             method: "POST",
             body: JSON.stringify({
                 name: name,
@@ -38,7 +39,7 @@ async function save_service(name, path, command) {
 
 async function delete_service(uuid, name, path, command) {
     try {
-        await fetch(`http://${await getUrl()}:3001/delete-service`, {
+        await fetch(`http://${await getUrl()}:${port}/delete-service`, {
             method: "POST",
             body: JSON.stringify({
                 uuid: uuid,
@@ -59,7 +60,7 @@ async function delete_service(uuid, name, path, command) {
 
 async function start_service(uuid, name, path, command) {
     try {
-        await fetch(`http://${await getUrl()}:3001/start-service`, {
+        await fetch(`http://${await getUrl()}:${port}/start-service`, {
             method: "POST",
             body: JSON.stringify({
                 uuid: uuid,
@@ -79,7 +80,7 @@ async function start_service(uuid, name, path, command) {
 
 async function stop_service(uuid, name, path, command) {
     try {
-        await fetch(`http://${await getUrl()}:3001/stop-service`, {
+        await fetch(`http://${await getUrl()}:${port}/stop-service`, {
             method: "POST",
             body: JSON.stringify({
                 uuid: uuid,
@@ -99,7 +100,7 @@ async function stop_service(uuid, name, path, command) {
 
 async function check_service(uuid) {
     try {
-        const response = await fetch(`http://${await getUrl()}:3001/check-service?uuid=${uuid}`);
+        const response = await fetch(`http://${await getUrl()}:${port}/check-service?uuid=${uuid}`);
         return await response.json();
     } catch (e) {
         return false;

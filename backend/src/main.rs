@@ -37,7 +37,7 @@ fn app() -> Router {
 
 #[tokio::main]
 async fn main() {
-    let addr = SocketAddr::from(([0, 0, 0, 0], 3001));
+    let addr = SocketAddr::from(([0, 0, 0, 0], 7878));
     let listener = tokio::net::TcpListener::bind(&addr).await.unwrap();
     println!("Listening on {}", addr);
 
