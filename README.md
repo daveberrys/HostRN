@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="frontend/public/favicon.ico" alt="HostRN Logo" width="100" height="100">
+    <img src="frontend/public/favicon.ico" alt="HostRN Logo" width="128" height="128" >
     <h1>HostRN</h1>
     <p>
         HostRN is a fun little side project where instead of
