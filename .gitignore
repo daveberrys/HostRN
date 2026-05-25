@@ -2,3 +2,4 @@ node_modules
 backend/target
 data
 .env*
+frontend/dist

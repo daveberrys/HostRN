@@ -4,12 +4,13 @@
   "description": "",
   "scripts": {
     "start": "pnpm -r start",
-    "start:frontend": "pnpm --filter frontend start",
-    "start:backend": "pnpm --filter backend start",
     
+    "dev:frontend": "pnpm --filter frontend dev",
+    "start:frontend": "pnpm --filter frontend start",
     "add:backend": "pnpm --filter backend add:cargo",
     "remove:backend": "pnpm --filter backend remove:cargo",
 
+    "start:backend": "pnpm --filter backend start",
     "add:frontend": "pnpm --filter frontend add:npm",
     "remove:frontend": "pnpm --filter frontend remove:npm"
   },
